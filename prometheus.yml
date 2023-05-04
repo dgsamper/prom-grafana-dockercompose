@@ -1,0 +1,14 @@
+# put this file in the /etc/prometheus folder
+
+global:
+  scrape_interval: 20s
+
+scrape_configs:
+  - job_name: 'prometheus' # prometheus itself
+    static_configs:
+    - targets: ['localhost:9090']
+
+  
+  - job_name: 'node-exporter' #node_exporter - metrics from the host os
+    static_configs:
+      - targets: ['node-exporter:9100']
